@@ -2,22 +2,18 @@
 #include <Wire.h>
 #include "FooLib.h"
 
-FooClass FooObject;
-
-void setup() {
-
-	Serial.begin(115200);
-	delay(1000);
-
-}
-
+#include "FastLED.h"
+#define NUM_LEDS 35
+#define DATA_PIN 24
+#define CLOCK_PIN 22
+CRGB leds[NUM_LEDS];
+void setup() { FastLED.addLeds<APA102,DATA_PIN,CLOCK_PIN>(leds, NUM_LEDS); int i=0; }
 void loop() {
-
-	Serial.println("Hello world");
-	FooObject.firstFooMethod();
-	delay(1000);
-	FooObject.secondFooMethod();
-	delay(1000);
-
+	int i =0;
+	while (true){
+		i = (i+1) % NUM_LEDS;
+    leds[i] = CRGB::White; FastLED.show(); delay(30);
+    leds[i] = CRGB::Black; FastLED.show(); delay(30);
+	}
 }
 

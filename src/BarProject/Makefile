@@ -33,7 +33,7 @@ BOARD_SUB         = atmega2560
 
 ### MONITOR_BAUDRATE
 ### It must be set to Serial baudrate value you are using.
-MONITOR_BAUDRATE  = 115200
+MONITOR_BAUDRATE  = 9600 
 
 ### AVR_TOOLS_DIR
 ### Path to the AVR tools directory such as avr-gcc, avr-g++, etc.
@@ -49,7 +49,7 @@ AVRDDUDE          = /usr/bin/avrdude
 
 ### CPPFLAGS
 ### Flags you might want to set for debugging purpose. Comment to stop.
-CXXFLAGS         = -pedantic -Wall -Wextra
+CXXFLAGS         = -pedantic -Wall -Wextra -O3
 
 ### If avr-gcc -v is higher than 4.9, activate coloring of the output
 ifeq "$(AVR_GCC_VERSION)" "1"
@@ -58,7 +58,7 @@ endif
 
 ### MONITOR_PORT
 ### The port your board is connected to. Using an '*' tries all the ports and finds the right one.
-MONITOR_PORT      = /dev/ttyACM0
+MONITOR_PORT      = /dev/ttyACM1
 
 ### don't touch this
 CURRENT_DIR       = $(shell basename $(CURDIR))
